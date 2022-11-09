@@ -1,0 +1,45 @@
+object Form1: TForm1
+  Left = 675
+  Height = 430
+  Top = 349
+  Width = 599
+  Caption = 'Typecasts'
+  ClientHeight = 430
+  ClientWidth = 599
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '2.0.2.0'
+  object Memo: TMemo
+    Left = 0
+    Height = 430
+    Top = 0
+    Width = 451
+    Align = alLeft
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ParentShowHint = False
+    ScrollBars = ssAutoBoth
+    ShowHint = True
+    TabOrder = 0
+    WordWrap = False
+  end
+  object btnTypeCast: TButton
+    Left = 469
+    Height = 38
+    Top = 19
+    Width = 107
+    Anchors = [akTop, akRight]
+    Caption = 'Do typecast'
+    OnClick = btnTypeCastClick
+    TabOrder = 1
+  end
+  object btnPolymorphims: TButton
+    Left = 469
+    Height = 38
+    Top = 65
+    Width = 107
+    Anchors = [akTop, akRight]
+    Caption = 'Polymorphims'
+    OnClick = btnPolymorphimsClick
+    TabOrder = 2
+  end
+end
