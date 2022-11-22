@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{EC582E88-12A9-401C-B8AB-C7C722F72FD8}</ProjectGuid>
+        <ProjectGuid>{AE759792-FD83-4938-BEC1-E85C22D6EADE}</ProjectGuid>
         <ProjectVersion>19.2</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
@@ -8,7 +8,7 @@
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>Project_CopyRecords.dpr</MainSource>
+        <MainSource>Project_OutParameters.dpr</MainSource>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -57,7 +57,7 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <SanitizedProjectName>Project_CopyRecords</SanitizedProjectName>
+        <SanitizedProjectName>Project_OutParameters</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;vclactnband;vclFireDAC;bindcompvclsmp;CubicLog;tethering;svnui;JvGlobus;FireDACADSDriver;JvPluginSystem;frx27;JvMM;vcltouch;JvBands;vcldb;bindcompfmx;svn;JvJans;JvNet;inetdb;JvAppFrm;RaizeComponentsVcl;FmxTeeUI;JvDotNetCtrls;fmx;FireDACIBDriver;fmxdae;vcledge;Finetech_ColorPicker;JvWizards;dbexpress;IndyCore;vclx;frxTee27;JvPageComps;dsnap;FireDACCommon;JvDB;CubicCore;RESTBackendComponents;VCLRESTComponents;Skia.Package.VCL;soapserver;Finetech_VC;Skia.Package.FMX;JclDeveloperTools;vclie;bindengine;DBXMySQLDriver;CloudService;JvCmp;FireDACMySQLDriver;JvHMI;FireDACCommonODBC;FireDACCommonDriver;inet;IndyIPCommon;bindcompdbx;frxDB27;JvCustom;vcl;IndyIPServer;JvXPCtrls;IndySystem;bindcompvclwinx;dsnapcon;VirtualTreesR;FireDACMSAccDriver;fmxFireDAC;vclimg;Jcl;FireDAC;TeeDB;JvCore;JvCrypt;FireDACSqliteDriver;FireDACPgDriver;FMXTee;soaprtl;DbxCommonDriver;JvDlgs;JvRuntimeDesign;JvManagedThreads;Tee;xmlrtl;soapmidas;JvTimeFramework;fmxobj;vclwinx;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;JvSystem;JvStdCtrls;bindcomp;appanalytics;IndyIPClient;Skia.Package.RTL;bindcompvcl;frxe27;TeeUI;JvDocking;dbxcds;VclSmp;JvPascalInterpreter;adortl;JclVcl;dsnapxml;dbrtl;IndyProtocols;inetdbxpress;JvControls;JvPrintPreview;JclContainers;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
@@ -101,7 +101,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="FormDemo.pas">
-            <Form>frmCopyRecords</Form>
+            <Form>frmTest</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
@@ -122,7 +122,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Project_CopyRecords.dpr</Source>
+                    <Source Name="MainSource">Project_OutParameters.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -130,9 +130,9 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\Project_CopyRecords.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\Project_OutParameters.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Project_CopyRecords.exe</RemoteName>
+                        <RemoteName>Project_OutParameters.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
