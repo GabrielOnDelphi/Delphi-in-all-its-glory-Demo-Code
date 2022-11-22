@@ -51,7 +51,7 @@ end;
 
 procedure TForm1.btnError1Click(Sender: TObject);
 begin
- raise Exception.Create('Something is wrong with the Force!');
+ raise Exception.Create('There is a disturbance in the Force!');
 end;
 
 
