@@ -9,9 +9,6 @@
         <Projects Include="Record field alignment\Project_FieldAlignment.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Methods and polymorphism\Project_Polymorphism.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Array demo\Project_Arrays.dproj">
             <Dependencies/>
         </Projects>
@@ -45,10 +42,16 @@
         <Projects Include="DataTypes - SizeOf\Project_DateTypeSize.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="OurParameters\Project_OutParameters.dproj">
+        <Projects Include="Records - Deep copy records\Project_CopyRecords.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Records - Deep copy records\Project_CopyRecords.dproj">
+        <Projects Include="Out Parameters\Project_OutParameters.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Classes - Methods and polymorphism\Project_Polymorphism.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Classes - Typecast demo Delphi\Project_Typecast.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -76,15 +79,6 @@
     </Target>
     <Target Name="Project_FieldAlignment:Make">
         <MSBuild Projects="Record field alignment\Project_FieldAlignment.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="Project_Polymorphism">
-        <MSBuild Projects="Methods and polymorphism\Project_Polymorphism.dproj"/>
-    </Target>
-    <Target Name="Project_Polymorphism:Clean">
-        <MSBuild Projects="Methods and polymorphism\Project_Polymorphism.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Project_Polymorphism:Make">
-        <MSBuild Projects="Methods and polymorphism\Project_Polymorphism.dproj" Targets="Make"/>
     </Target>
     <Target Name="Project_Arrays">
         <MSBuild Projects="Array demo\Project_Arrays.dproj"/>
@@ -185,15 +179,6 @@
     <Target Name="Project_DateTypeSize:Make">
         <MSBuild Projects="DataTypes - SizeOf\Project_DateTypeSize.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Project_OutParameters">
-        <MSBuild Projects="OurParameters\Project_OutParameters.dproj"/>
-    </Target>
-    <Target Name="Project_OutParameters:Clean">
-        <MSBuild Projects="OurParameters\Project_OutParameters.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Project_OutParameters:Make">
-        <MSBuild Projects="OurParameters\Project_OutParameters.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Project_CopyRecords">
         <MSBuild Projects="Records - Deep copy records\Project_CopyRecords.dproj"/>
     </Target>
@@ -203,14 +188,41 @@
     <Target Name="Project_CopyRecords:Make">
         <MSBuild Projects="Records - Deep copy records\Project_CopyRecords.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Project_OutParameters">
+        <MSBuild Projects="Out Parameters\Project_OutParameters.dproj"/>
+    </Target>
+    <Target Name="Project_OutParameters:Clean">
+        <MSBuild Projects="Out Parameters\Project_OutParameters.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project_OutParameters:Make">
+        <MSBuild Projects="Out Parameters\Project_OutParameters.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Project_Polymorphism">
+        <MSBuild Projects="Classes - Methods and polymorphism\Project_Polymorphism.dproj"/>
+    </Target>
+    <Target Name="Project_Polymorphism:Clean">
+        <MSBuild Projects="Classes - Methods and polymorphism\Project_Polymorphism.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project_Polymorphism:Make">
+        <MSBuild Projects="Classes - Methods and polymorphism\Project_Polymorphism.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Project_Typecast">
+        <MSBuild Projects="Classes - Typecast demo Delphi\Project_Typecast.dproj"/>
+    </Target>
+    <Target Name="Project_Typecast:Clean">
+        <MSBuild Projects="Classes - Typecast demo Delphi\Project_Typecast.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project_Typecast:Make">
+        <MSBuild Projects="Classes - Typecast demo Delphi\Project_Typecast.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Project_HelloWorld;Project_FieldAlignment;Project_Polymorphism;Project_Arrays;Project_InheritanceTree;Project_FirstName;Project_FirstName2;Project_BothNames;Project_Rounding;Project_TwoForms;Project_ProperInitialization;Project_VirtualKeyb;Project_TryExcept;Project_DateTypeSize;Project_OutParameters;Project_CopyRecords"/>
+        <CallTarget Targets="Project_HelloWorld;Project_FieldAlignment;Project_Arrays;Project_InheritanceTree;Project_FirstName;Project_FirstName2;Project_BothNames;Project_Rounding;Project_TwoForms;Project_ProperInitialization;Project_VirtualKeyb;Project_TryExcept;Project_DateTypeSize;Project_CopyRecords;Project_OutParameters;Project_Polymorphism;Project_Typecast"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Project_HelloWorld:Clean;Project_FieldAlignment:Clean;Project_Polymorphism:Clean;Project_Arrays:Clean;Project_InheritanceTree:Clean;Project_FirstName:Clean;Project_FirstName2:Clean;Project_BothNames:Clean;Project_Rounding:Clean;Project_TwoForms:Clean;Project_ProperInitialization:Clean;Project_VirtualKeyb:Clean;Project_TryExcept:Clean;Project_DateTypeSize:Clean;Project_OutParameters:Clean;Project_CopyRecords:Clean"/>
+        <CallTarget Targets="Project_HelloWorld:Clean;Project_FieldAlignment:Clean;Project_Arrays:Clean;Project_InheritanceTree:Clean;Project_FirstName:Clean;Project_FirstName2:Clean;Project_BothNames:Clean;Project_Rounding:Clean;Project_TwoForms:Clean;Project_ProperInitialization:Clean;Project_VirtualKeyb:Clean;Project_TryExcept:Clean;Project_DateTypeSize:Clean;Project_CopyRecords:Clean;Project_OutParameters:Clean;Project_Polymorphism:Clean;Project_Typecast:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Project_HelloWorld:Make;Project_FieldAlignment:Make;Project_Polymorphism:Make;Project_Arrays:Make;Project_InheritanceTree:Make;Project_FirstName:Make;Project_FirstName2:Make;Project_BothNames:Make;Project_Rounding:Make;Project_TwoForms:Make;Project_ProperInitialization:Make;Project_VirtualKeyb:Make;Project_TryExcept:Make;Project_DateTypeSize:Make;Project_OutParameters:Make;Project_CopyRecords:Make"/>
+        <CallTarget Targets="Project_HelloWorld:Make;Project_FieldAlignment:Make;Project_Arrays:Make;Project_InheritanceTree:Make;Project_FirstName:Make;Project_FirstName2:Make;Project_BothNames:Make;Project_Rounding:Make;Project_TwoForms:Make;Project_ProperInitialization:Make;Project_VirtualKeyb:Make;Project_TryExcept:Make;Project_DateTypeSize:Make;Project_CopyRecords:Make;Project_OutParameters:Make;Project_Polymorphism:Make;Project_Typecast:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

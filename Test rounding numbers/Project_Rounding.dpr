@@ -2,7 +2,7 @@ program Project_Rounding;
 
 uses
   Vcl.Forms,
-  Unit19 in 'Unit19.pas' {frmMine2};
+  FormRounding in 'FormRounding.pas' {frmMine2};
 
 {$R *.res}
 

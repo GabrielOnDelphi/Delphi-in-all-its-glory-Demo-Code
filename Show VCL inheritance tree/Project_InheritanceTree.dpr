@@ -9,8 +9,8 @@ uses
   madListModules,
   Forms,
   TesterForm in 'TesterForm.pas' {frmTester},
-  cShortcutConflictLister in '..\..\Packages\CubicCommonControls\cShortcutConflictLister.pas',
-  cVclUtils in '..\..\Packages\CubicCommonControls\cVclUtils.pas';
+  cShortcutConflictLister in '..\..\Packages\LightSaber\cShortcutConflictLister.pas',
+  cVclUtils in '..\..\Packages\LightSaber\cVclUtils.pas';
 
 {$R *.res}
 

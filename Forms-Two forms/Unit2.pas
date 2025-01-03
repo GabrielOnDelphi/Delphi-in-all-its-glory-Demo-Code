@@ -34,14 +34,14 @@ end;
 procedure TForm2.Button1Click(Sender: TObject);
 begin
  Form1.Caption:= 'Here I am!';
- Form1.Show;
+ Form1.Show;   // We can do this only because we have Form1 in a global variable. But what if we don't have it in a global var?
 end;
 
 
 procedure TForm2.Button2Click(Sender: TObject);
 begin
  Application.MainForm.Caption:= 'Here I am!!';
- Application.MainForm.Show;
+ Application.MainForm.Show; // We don't actually to access Form1 via a global var. We can access it via Application.MainForm.
 end;
 
 

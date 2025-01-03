@@ -41,14 +41,14 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
         <SanitizedProjectName>Project_HelloWorld</SanitizedProjectName>
-        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
-        <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+        <DCC_DcuOutput>.\$(ProductVersion)\$(Platform)_$(Config)</DCC_DcuOutput>
+        <DCC_ExeOutput>.\$(ProductVersion)\$(Platform)_$(Config)</DCC_ExeOutput>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
-        <DCC_UsePackage>IndyIPClient;adortl;DBXSqliteDriver;RESTBackendComponents;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;tethering;bindcomp;GR32_R;inetdb;DBXInterBaseDriver;CubicProteus;CubicCommon;xmlrtl;svnui;CubicVisControls;DbxCommonDriver;vclimg;IndyProtocols;DBXMySQLDriver;dbxcds;MetropolisUILiveTile;bindcompdbx;vclactnband;bindengine;vcldb;soaprtl;vcldsnap;bindcompvcl;vclie;vcltouch;emsclient;CustomIPTransport;DragDropDXE7;vclribbon;VclSmp;dsnap;IndyIPServer;VCLRESTComponents;IndyCore;vcl;IndyIPCommon;CloudService;CubicCore;dsnapcon;inet;vclx;inetdbxpress;svn;dsnapxml;RESTComponents;ThirdPartyPack_XE7;dbexpress;EurekaLogCore;CubicLog;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>IndyIPClient;adortl;DBXSqliteDriver;RESTBackendComponents;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;tethering;bindcomp;GR32_R;inetdb;DBXInterBaseDriver;LightProteus;CubicCommon;xmlrtl;svnui;CubicVisControls;DbxCommonDriver;vclimg;IndyProtocols;DBXMySQLDriver;dbxcds;MetropolisUILiveTile;bindcompdbx;vclactnband;bindengine;vcldb;soaprtl;vcldsnap;bindcompvcl;vclie;vcltouch;emsclient;CustomIPTransport;DragDropDXE7;vclribbon;VclSmp;dsnap;IndyIPServer;VCLRESTComponents;IndyCore;vcl;IndyIPCommon;CloudService;CubicCore;dsnapcon;inet;vclx;inetdbxpress;svn;dsnapxml;RESTComponents;ThirdPartyPack_XE7;dbexpress;EurekaLogCore;CubicLog;$(DCC_UsePackage)</DCC_UsePackage>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>

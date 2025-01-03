@@ -46,8 +46,8 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
-        <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+        <DCC_DcuOutput>.\$(ProductVersion)\$(Platform)_$(Config)</DCC_DcuOutput>
+        <DCC_ExeOutput>.\$(ProductVersion)\$(Platform)_$(Config)</DCC_ExeOutput>
         <DCC_E>false</DCC_E>
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
@@ -60,7 +60,7 @@
         <SanitizedProjectName>Project_VirtualKeyb</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;vclactnband;vclFireDAC;bindcompvclsmp;CubicLog;tethering;svnui;JvGlobus;FireDACADSDriver;JvPluginSystem;CubicVisControls;JvMM;BionixVCL;vcltouch;JvBands;vcldb;bindcompfmx;svn;JvJans;JvNet;inetdb;JvAppFrm;RaizeComponentsVcl;ThirdPartyPack;JvDotNetCtrls;fmx;FireDACIBDriver;fmxdae;vcledge;DragDropDR104R;Finetech_ColorPicker;JvWizards;dbexpress;IndyCore;vclx;FFmpeg_DXT4;dsnap;JvPageComps;FireDACCommon;JvDB;CubicCore;RESTBackendComponents;VCLRESTComponents;soapserver;Finetech_VC;JclDeveloperTools;vclie;bindengine;DBXMySQLDriver;CloudService;JvCmp;FireDACMySQLDriver;JvHMI;FireDACCommonODBC;FireDACCommonDriver;CubicInternet;inet;IndyIPCommon;bindcompdbx;GR32_D;JvCustom;vcl;IndyIPServer;JvXPCtrls;IndySystem;CubicGraphics;bindcompvclwinx;dsnapcon;madExcept_;VirtualTreesR;FireDACMSAccDriver;fmxFireDAC;vclimg;madBasic_;Jcl;FireDAC;TeeDB;JvCore;JvCrypt;FireDACSqliteDriver;FireDACPgDriver;soaprtl;DbxCommonDriver;JvDlgs;JvRuntimeDesign;JvManagedThreads;Tee;CubicCommon;CCRExif;xmlrtl;soapmidas;JvTimeFramework;fmxobj;vclwinx;GR32_R;rtl;madDisAsm_;DbxClientDriver;CustomIPTransport;vcldsnap;JvSystem;JvStdCtrls;bindcomp;appanalytics;IndyIPClient;bindcompvcl;TeeUI;JvDocking;dbxcds;VclSmp;JvPascalInterpreter;adortl;JclVcl;dsnapxml;dbrtl;IndyProtocols;inetdbxpress;JvControls;JvPrintPreview;CubicProteus;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;vclactnband;vclFireDAC;bindcompvclsmp;CubicLog;tethering;svnui;JvGlobus;FireDACADSDriver;JvPluginSystem;CubicVisControls;JvMM;BionixVCL;vcltouch;JvBands;vcldb;bindcompfmx;svn;JvJans;JvNet;inetdb;JvAppFrm;RaizeComponentsVcl;ThirdPartyPack;JvDotNetCtrls;fmx;FireDACIBDriver;fmxdae;vcledge;DragDropDR104R;Finetech_ColorPicker;JvWizards;dbexpress;IndyCore;vclx;FFmpeg_DXT4;dsnap;JvPageComps;FireDACCommon;JvDB;CubicCore;RESTBackendComponents;VCLRESTComponents;soapserver;Finetech_VC;JclDeveloperTools;vclie;bindengine;DBXMySQLDriver;CloudService;JvCmp;FireDACMySQLDriver;JvHMI;FireDACCommonODBC;FireDACCommonDriver;CubicInternet;inet;IndyIPCommon;bindcompdbx;GR32_D;JvCustom;vcl;IndyIPServer;JvXPCtrls;IndySystem;CubicGraphics;bindcompvclwinx;dsnapcon;madExcept_;VirtualTreesR;FireDACMSAccDriver;fmxFireDAC;vclimg;madBasic_;Jcl;FireDAC;TeeDB;JvCore;JvCrypt;FireDACSqliteDriver;FireDACPgDriver;soaprtl;DbxCommonDriver;JvDlgs;JvRuntimeDesign;JvManagedThreads;Tee;CubicCommon;CCRExif;xmlrtl;soapmidas;JvTimeFramework;fmxobj;vclwinx;GR32_R;rtl;madDisAsm_;DbxClientDriver;CustomIPTransport;vcldsnap;JvSystem;JvStdCtrls;bindcomp;appanalytics;IndyIPClient;bindcompvcl;TeeUI;JvDocking;dbxcds;VclSmp;JvPascalInterpreter;adortl;JclVcl;dsnapxml;dbrtl;IndyProtocols;inetdbxpress;JvControls;JvPrintPreview;LightProteus;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -98,7 +98,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Unit19.pas">
+        <DCCReference Include="FormKeyboard.pas">
             <Form>FormKeyb</Form>
             <FormType>dfm</FormType>
         </DCCReference>

@@ -1,6 +1,7 @@
 program Project_Arrays;
 
 uses
+  FastMM4,
   Vcl.Forms,
   UnitArrays in 'UnitArrays.pas' {Form21};
 

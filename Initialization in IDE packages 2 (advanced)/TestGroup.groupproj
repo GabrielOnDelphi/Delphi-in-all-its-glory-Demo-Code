@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{3D577D97-8CF1-4DCD-90DC-52919FE71C44}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Pkg1_R.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Pkg2_R.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Pkg2_D.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TestApp.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Pkg1_R">
+        <MSBuild Projects="Pkg1_R.dproj"/>
+    </Target>
+    <Target Name="Pkg1_R:Clean">
+        <MSBuild Projects="Pkg1_R.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Pkg1_R:Make">
+        <MSBuild Projects="Pkg1_R.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Pkg2_R">
+        <MSBuild Projects="Pkg2_R.dproj"/>
+    </Target>
+    <Target Name="Pkg2_R:Clean">
+        <MSBuild Projects="Pkg2_R.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Pkg2_R:Make">
+        <MSBuild Projects="Pkg2_R.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Pkg2_D">
+        <MSBuild Projects="Pkg2_D.dproj"/>
+    </Target>
+    <Target Name="Pkg2_D:Clean">
+        <MSBuild Projects="Pkg2_D.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Pkg2_D:Make">
+        <MSBuild Projects="Pkg2_D.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestApp">
+        <MSBuild Projects="TestApp.dproj"/>
+    </Target>
+    <Target Name="TestApp:Clean">
+        <MSBuild Projects="TestApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestApp:Make">
+        <MSBuild Projects="TestApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Pkg1_R;Pkg2_R;Pkg2_D;TestApp"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Pkg1_R:Clean;Pkg2_R:Clean;Pkg2_D:Clean;TestApp:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Pkg1_R:Make;Pkg2_R:Make;Pkg2_D:Make;TestApp:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

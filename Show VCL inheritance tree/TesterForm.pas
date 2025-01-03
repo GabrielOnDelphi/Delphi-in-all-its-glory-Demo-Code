@@ -7,7 +7,7 @@ USES
   cvRichEdit, Vcl.ComCtrls, Vcl.StdActns, System.Actions, Vcl.ExtCtrls, Vcl.Imaging.jpeg;
 
 CONST
-   MSG_LateInitialize= WM_APP + 4711;
+   MSG_LateFormInit= WM_APP + 4711;
 
 TYPE
  TfrmTester = class(TForm)
@@ -28,7 +28,7 @@ TYPE
     procedure TimerTimer(Sender: TObject);
   protected
   private
-    procedure LateInitialize(VAR message: TMessage);  message MSG_LateInitialize;
+    procedure LateInitialize(VAR Msg: TMessage); message MSG_LateFormInit; // Called after the main form was fully created
   public
  end;
 
@@ -49,7 +49,7 @@ USES cmVclUtils;
 --------------------------------------------------------------------------------------------------}
 procedure TfrmTester.FormCreate(Sender: TObject);
 begin
- PostMessage(Self.Handle, MSG_LateInitialize, 0, 0);                        { This will call LateInitialize }
+
 end;
 
 

@@ -7,7 +7,7 @@ USES
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
 CONST
-      MSG_LateInitialize= WM_APP + 4711;
+      MSG_LateFormInit= WM_APP + 4711;
 
 TYPE
   TForm1 = class(TForm)
@@ -16,7 +16,7 @@ TYPE
     procedure FormCreate(Sender: TObject);
   private
   protected
-    procedure LateInitialize(var Message: TMessage); message MSG_LateInitialize;
+    procedure LateInitialize(VAR Msg: TMessage); message MSG_LateFormInit; // Called after the main form was fully created
   end;
 
 var
@@ -31,7 +31,7 @@ USES Unit2;
 
 procedure TForm1.FormCreate (Sender: TObject);
 begin
-  PostMessage(Self.Handle, MSG_LateInitialize, 0, 0);
+  PostMessage(Self.Handle, MSG_LateAppInit_, 0, 0);
   Show;
   Sleep(1000);  // Form 1 is very bussy here.
 end;
