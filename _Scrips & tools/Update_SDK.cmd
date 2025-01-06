@@ -1,4 +1,3 @@
-cd "c:\Delphi\Delphi 11\CatalogRepository\AndroidSDK-2525-22.0.48361.3236\cmdline-tools\latest\bin\"
 prompt $g
 echo off
 cls
@@ -44,11 +43,12 @@ echo INSTALL PLATFORMS 1
 call sdkmanager.bat --verbose --install "platforms;android-32"
 
 echo INSTALL PLATFORMS 2 (in case the first one fails)
-call sdkmanager.bar "platform-tools" "platforms;android-32"
+call sdkmanager.bat "platform-tools" "platforms;android-32"
 echo.
 echo.
 echo.
 pause
+
 
 echo INSTALL BILDS
 call sdkmanager.bat --verbose --install "build-tools;32.0.0"
