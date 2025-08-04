@@ -3,7 +3,9 @@ UNIT MainForm;
 INTERFACE
 
 USES
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, uMachines, Vcl.ExtCtrls;
+  System.SysUtils, System.Classes,
+  Vcl.Controls, Vcl.Forms, Vcl.StdCtrls, Vcl.ExtCtrls,
+  uMachines;
 
 TYPE
   TfrmMain = class(TForm)
@@ -71,14 +73,14 @@ begin
   // OK
   // Pointless typecast. We typecast Machinery to Machinery. Pointles but valid.
   Memo.Lines.Add('Machinery as TMachinery: ');
-  Memo.Lines.Add('Name: '      + (Machinery as TMachinery).Name);      // This will show the name of the object
-  Memo.Lines.Add('WhatAreYou: '+ (Machinery as TMachinery).WhatAreYou); // This will call the WhatAreYou method
+  Memo.Lines.Add('  Name: '      + (Machinery as TMachinery).Name);       // This will show the name of the object
+  Memo.Lines.Add('  WhatAreYou: '+ (Machinery as TMachinery).WhatAreYou); // This will call the WhatAreYou method
   Memo.Lines.Add('');
 
   // OK
   Memo.Lines.Add('Car as TMachinery: ');
-  Memo.Lines.Add('Name: '      + (Car as TMachinery).Name);
-  Memo.Lines.Add('WhatAreYou: '+ (Car as TMachinery).WhatAreYou);
+  Memo.Lines.Add('  Name: '      + (Car as TMachinery).Name);        // Shows Car (but it is a pointless typecast since fields cannot be overridden)
+  Memo.Lines.Add('  WhatAreYou: '+ (Car as TMachinery).WhatAreYou);  // Shows Machinery
 end;
 
 

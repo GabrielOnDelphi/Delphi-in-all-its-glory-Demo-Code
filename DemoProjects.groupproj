@@ -54,6 +54,12 @@
         <Projects Include="Classes - Typecast demo Delphi\Project_Typecast.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Forms-Form construction order\FMX\FormCreationOrder_FMXTest.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Forms-Form construction order\VCL\FormCreationOrder_Vcl_Test.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -215,14 +221,32 @@
     <Target Name="Project_Typecast:Make">
         <MSBuild Projects="Classes - Typecast demo Delphi\Project_Typecast.dproj" Targets="Make"/>
     </Target>
+    <Target Name="FormCreationOrder_FMXTest">
+        <MSBuild Projects="Forms-Form construction order\FMX\FormCreationOrder_FMXTest.dproj"/>
+    </Target>
+    <Target Name="FormCreationOrder_FMXTest:Clean">
+        <MSBuild Projects="Forms-Form construction order\FMX\FormCreationOrder_FMXTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FormCreationOrder_FMXTest:Make">
+        <MSBuild Projects="Forms-Form construction order\FMX\FormCreationOrder_FMXTest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FormCreationOrder_Vcl_Test">
+        <MSBuild Projects="Forms-Form construction order\VCL\FormCreationOrder_Vcl_Test.dproj"/>
+    </Target>
+    <Target Name="FormCreationOrder_Vcl_Test:Clean">
+        <MSBuild Projects="Forms-Form construction order\VCL\FormCreationOrder_Vcl_Test.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FormCreationOrder_Vcl_Test:Make">
+        <MSBuild Projects="Forms-Form construction order\VCL\FormCreationOrder_Vcl_Test.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Project_HelloWorld;Project_FieldAlignment;Project_Arrays;Project_InheritanceTree;Project_FirstName;Project_FirstName2;Project_BothNames;Project_Rounding;Project_TwoForms;Project_ProperInitialization;Project_VirtualKeyb;Project_TryExcept;Project_DateTypeSize;Project_CopyRecords;Project_OutParameters;Project_Polymorphism;Project_Typecast"/>
+        <CallTarget Targets="Project_HelloWorld;Project_FieldAlignment;Project_Arrays;Project_InheritanceTree;Project_FirstName;Project_FirstName2;Project_BothNames;Project_Rounding;Project_TwoForms;Project_ProperInitialization;Project_VirtualKeyb;Project_TryExcept;Project_DateTypeSize;Project_CopyRecords;Project_OutParameters;Project_Polymorphism;Project_Typecast;FormCreationOrder_FMXTest;FormCreationOrder_Vcl_Test"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Project_HelloWorld:Clean;Project_FieldAlignment:Clean;Project_Arrays:Clean;Project_InheritanceTree:Clean;Project_FirstName:Clean;Project_FirstName2:Clean;Project_BothNames:Clean;Project_Rounding:Clean;Project_TwoForms:Clean;Project_ProperInitialization:Clean;Project_VirtualKeyb:Clean;Project_TryExcept:Clean;Project_DateTypeSize:Clean;Project_CopyRecords:Clean;Project_OutParameters:Clean;Project_Polymorphism:Clean;Project_Typecast:Clean"/>
+        <CallTarget Targets="Project_HelloWorld:Clean;Project_FieldAlignment:Clean;Project_Arrays:Clean;Project_InheritanceTree:Clean;Project_FirstName:Clean;Project_FirstName2:Clean;Project_BothNames:Clean;Project_Rounding:Clean;Project_TwoForms:Clean;Project_ProperInitialization:Clean;Project_VirtualKeyb:Clean;Project_TryExcept:Clean;Project_DateTypeSize:Clean;Project_CopyRecords:Clean;Project_OutParameters:Clean;Project_Polymorphism:Clean;Project_Typecast:Clean;FormCreationOrder_FMXTest:Clean;FormCreationOrder_Vcl_Test:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Project_HelloWorld:Make;Project_FieldAlignment:Make;Project_Arrays:Make;Project_InheritanceTree:Make;Project_FirstName:Make;Project_FirstName2:Make;Project_BothNames:Make;Project_Rounding:Make;Project_TwoForms:Make;Project_ProperInitialization:Make;Project_VirtualKeyb:Make;Project_TryExcept:Make;Project_DateTypeSize:Make;Project_CopyRecords:Make;Project_OutParameters:Make;Project_Polymorphism:Make;Project_Typecast:Make"/>
+        <CallTarget Targets="Project_HelloWorld:Make;Project_FieldAlignment:Make;Project_Arrays:Make;Project_InheritanceTree:Make;Project_FirstName:Make;Project_FirstName2:Make;Project_BothNames:Make;Project_Rounding:Make;Project_TwoForms:Make;Project_ProperInitialization:Make;Project_VirtualKeyb:Make;Project_TryExcept:Make;Project_DateTypeSize:Make;Project_CopyRecords:Make;Project_OutParameters:Make;Project_Polymorphism:Make;Project_Typecast:Make;FormCreationOrder_FMXTest:Make;FormCreationOrder_Vcl_Test:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

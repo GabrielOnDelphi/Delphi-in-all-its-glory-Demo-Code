@@ -3,29 +3,28 @@ unit uMachines;
 INTERFACE
 
 USES
-  Classes, SysUtils;
+  SysUtils;
 
 
 TYPE
    TMachinery = class(TObject)
      public
       Name: string;
-      constructor Create; overload;
+      constructor Create; virtual;
       function WhatAreYou: string;
      end;
 
    TCar = class(TMachinery)
      private
-      s: string;
      public
-      constructor Create; overload;
-      function WhatAreYou: string;
+      constructor Create; override;
+      function WhatAreYou: string;  // Notice! We don't override!
      end;
 
    TAirplane = class(TMachinery)
      public
-      constructor Create; overload;
-      function WhatAreYou: string;
+      constructor Create; override;
+      function WhatAreYou: string;  // Notice! We don't override!
      end;
 
 
@@ -35,12 +34,12 @@ implementation
 constructor TMachinery.Create;
 begin
  inherited Create;
- Name:= 'TMachinery';
+ Name:= 'Machinery';
 end;
 
 function TMachinery.WhatAreYou: string;
 begin
- Result:= 'Machinery';
+ Result:= 'A machinery';
 end;
 
 
@@ -48,14 +47,14 @@ end;
 
 constructor TCar.Create;
 begin
- inherited Create; // This will construct the TMachinery and set the Name to 'some kind of machine'...
- Name:= 'TCar';   // ...however, here we override the name with our own string (a car)
+ inherited Create; // This will construct the TMachinery and set the Name to 'Machinery'...
+ Name:= 'Car';     // ...however, here we overwrite it with our own string (a car).
 end;
 
 
 function TCar.WhatAreYou: string;
 begin
-  Result:= 'Car';
+  Result:= 'A car';
 end;
 
 
@@ -67,12 +66,12 @@ end;
 constructor TAirplane.Create;
 begin
  inherited Create; // This will set the name to 'some kind of machine' then to 'a car'...
- Name:= 'TAirplane'; // ... and now we again overwrite those name with our own (an airplane)
+ Name:= 'Airplane'; // ... and now we again overwrite those name with our own (an airplane)
 end;
 
 function TAirplane.WhatAreYou: string;
 begin
-  Result:= 'Airplane';
+  Result:= 'An airplane';
 end;
 
 

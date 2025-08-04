@@ -1,0 +1,29 @@
+object FormMain: TFormMain
+  Left = 0
+  Top = 0
+  OnAlignPosition = FormAlignPosition
+  Caption = 'Form Creation Order Test [VCL]'
+  ClientHeight = 441
+  ClientWidth = 624
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OnActivate = FormActivate
+  OnAfterMonitorDpiChanged = FormAfterMonitorDpiChanged
+  OnBeforeMonitorDpiChanged = FormBeforeMonitorDpiChanged
+  OnCanResize = FormCanResize
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnConstrainedResize = FormConstrainedResize
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnDeactivate = FormDeactivate
+  OnHide = FormHide
+  OnPaint = FormPaint
+  OnResize = FormResize
+  OnShow = FormShow
+  TextHeight = 15
+end

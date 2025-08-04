@@ -2,3 +2,6 @@
 *.~dsk
 *.dsk
 *.lnk
+/Classes - Typecast demo Delphi/__history
+*.local
+*.dsv
