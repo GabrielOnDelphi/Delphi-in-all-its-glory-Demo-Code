@@ -7,3 +7,5 @@
 *.dsv
 *.identcache
 FMX - Test deploy/AndroidManifest.template.xml
+*.res
+*.ini
