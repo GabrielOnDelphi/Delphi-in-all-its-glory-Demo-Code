@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6E5492F5-466D-4106-8612-F94B00D57E26}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="C:\Projects\LightSaber\Demo\FMX\Template - Minimal app\FMX_MinimalApp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ProjectTestDeploy.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Delphi\FMX\My tests\pristine\Project_new.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FMX_MinimalApp">
+        <MSBuild Projects="C:\Projects\LightSaber\Demo\FMX\Template - Minimal app\FMX_MinimalApp.dproj"/>
+    </Target>
+    <Target Name="FMX_MinimalApp:Clean">
+        <MSBuild Projects="C:\Projects\LightSaber\Demo\FMX\Template - Minimal app\FMX_MinimalApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMX_MinimalApp:Make">
+        <MSBuild Projects="C:\Projects\LightSaber\Demo\FMX\Template - Minimal app\FMX_MinimalApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectTestDeploy">
+        <MSBuild Projects="ProjectTestDeploy.dproj"/>
+    </Target>
+    <Target Name="ProjectTestDeploy:Clean">
+        <MSBuild Projects="ProjectTestDeploy.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectTestDeploy:Make">
+        <MSBuild Projects="ProjectTestDeploy.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Project_new">
+        <MSBuild Projects="C:\Delphi\FMX\My tests\pristine\Project_new.dproj"/>
+    </Target>
+    <Target Name="Project_new:Clean">
+        <MSBuild Projects="C:\Delphi\FMX\My tests\pristine\Project_new.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project_new:Make">
+        <MSBuild Projects="C:\Delphi\FMX\My tests\pristine\Project_new.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FMX_MinimalApp;ProjectTestDeploy;Project_new"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FMX_MinimalApp:Clean;ProjectTestDeploy:Clean;Project_new:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FMX_MinimalApp:Make;ProjectTestDeploy:Make;Project_new:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

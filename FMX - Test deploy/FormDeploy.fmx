@@ -1,0 +1,79 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'FMX minimalistic demo'
+  ClientHeight = 401
+  ClientWidth = 472
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Memo: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Lines.Strings = (
+      
+        'This program will try to read text from a file called TestFile.r' +
+        'es'
+      'On Windows, the file is next to the exe file.'
+      'On Android, the file has to be deployed.'
+      ''
+      
+        'We use the class TAppDataCore.AppDataFolder function to get acce' +
+        'ss to the file (it returns the correct file on both Windows and ' +
+        'Android).')
+    StyledSettings = [Style, FontColor]
+    TextSettings.Font.Family = 'Consolas'
+    TextSettings.WordWrap = True
+    Align = Client
+    Margins.Left = 4.000000000000000000
+    Margins.Top = 4.000000000000000000
+    Margins.Right = 4.000000000000000000
+    Margins.Bottom = 4.000000000000000000
+    Size.Width = 464.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Viewport.Width = 464.000000000000000000
+    Viewport.Height = 343.000000000000000000
+  end
+  object Layout1: TLayout
+    Align = Bottom
+    Position.Y = 351.000000000000000000
+    Size.Width = 472.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object btnShowPaths: TButton
+      Align = Left
+      Margins.Left = 3.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 3.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Position.X = 3.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 161.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Show paths'
+      OnClick = btnShowPathsClick
+    end
+    object btnOpenFile: TButton
+      Align = Left
+      Margins.Left = 3.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 3.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Position.X = 170.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 161.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Open file'
+      OnClick = btnOpenFileClick
+    end
+  end
+end
