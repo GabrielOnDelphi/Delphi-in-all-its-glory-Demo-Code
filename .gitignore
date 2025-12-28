@@ -9,3 +9,4 @@
 FMX - Test deploy/AndroidManifest.template.xml
 *.res
 *.ini
+/Demo form inheritance/__history
