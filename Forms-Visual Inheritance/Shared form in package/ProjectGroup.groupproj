@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{2D7DC0EC-AC9B-408E-BA59-632E2FA65975}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Package\VisualInheritanceR.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Package\VisualInheritanceD.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Tester\Tester.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="VisualInheritanceR">
+        <MSBuild Projects="Package\VisualInheritanceR.dproj"/>
+    </Target>
+    <Target Name="VisualInheritanceR:Clean">
+        <MSBuild Projects="Package\VisualInheritanceR.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VisualInheritanceR:Make">
+        <MSBuild Projects="Package\VisualInheritanceR.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VisualInheritanceD">
+        <MSBuild Projects="Package\VisualInheritanceD.dproj"/>
+    </Target>
+    <Target Name="VisualInheritanceD:Clean">
+        <MSBuild Projects="Package\VisualInheritanceD.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VisualInheritanceD:Make">
+        <MSBuild Projects="Package\VisualInheritanceD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Tester">
+        <MSBuild Projects="Tester\Tester.dproj"/>
+    </Target>
+    <Target Name="Tester:Clean">
+        <MSBuild Projects="Tester\Tester.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Tester:Make">
+        <MSBuild Projects="Tester\Tester.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="VisualInheritanceR;VisualInheritanceD;Tester"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="VisualInheritanceR:Clean;VisualInheritanceD:Clean;Tester:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="VisualInheritanceR:Make;VisualInheritanceD:Make;Tester:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

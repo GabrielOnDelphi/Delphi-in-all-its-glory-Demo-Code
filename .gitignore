@@ -10,3 +10,7 @@ FMX - Test deploy/AndroidManifest.template.xml
 *.res
 *.ini
 /Demo form inheritance/__history
+/Forms-Visual Inheritance/__history
+/Forms-Visual Inheritance/Shared form in package/Package/__history
+/Forms-Visual Inheritance/Shared form in package/Tester/__history
+*.dcu
