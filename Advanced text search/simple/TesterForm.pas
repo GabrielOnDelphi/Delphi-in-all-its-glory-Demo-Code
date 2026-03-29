@@ -13,8 +13,8 @@ TYPE
     Log: TRichLog;
     Panel1: TPanel;
     edtSearchWord: TCubicLabelEdit;
-    chkNonEmpty: TCubicCheckBox;
-    Path: TCubicPathEdit;
+    chkNonEmpty: TLightCheckBox;
+    Path: TlightPathEdit;
     edtFileType: TCubicLabelEdit;
     btnStart: TButton;
     procedure btnStartClick(Sender: TObject);

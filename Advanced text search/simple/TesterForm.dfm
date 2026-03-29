@@ -76,7 +76,7 @@ object frmTester: TfrmTester
       TabOrder = 0
       Text = '  8.1 Text: '
     end
-    object chkNonEmpty: TCubicCheckBox
+    object chkNonEmpty: TLightCheckBox
       Left = 26
       Top = 72
       Width = 168
@@ -90,7 +90,7 @@ object frmTester: TfrmTester
       TabOrder = 1
       AutoSize = True
     end
-    object Path: TCubicPathEdit
+    object Path: TlightPathEdit
       Left = 332
       Top = 22
       Width = 427
