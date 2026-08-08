@@ -35,7 +35,7 @@ USES cbAppData, cbINIFile, cbWinVersion, cvIniFile, ccIO, cmIO, cmIO.Win, cmDebu
 
 procedure TfrmTester.FormCreate(Sender: TObject);
 begin
- PostMessage(Self.Handle, MSG_LateAppInit_, 0, 0); Not needed anymore. Moved to cbAppData                       { This will call LateInitialize }
+ //PostMessage(Self.Handle, MSG_LateAppInit_, 0, 0); Not needed anymore. Moved to cbAppData                       { This will call LateInitialize }
 end;
 
 
