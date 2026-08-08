@@ -45,7 +45,7 @@ USES chHardID, cbAppData, cbINIFile, cbWinVersion, cvIniFile, ccIO, cmIO, cmIO.W
 
 procedure TfrmTester.FormCreate(Sender: TObject);
 begin
- PostMessage(Self.Handle, MSG_LateAppInit_, 0, 0); Not needed anymore. Moved to cbAppData                       { This will call LateInitialize }
+ //PostMessage(Self.Handle, MSG_LateAppInit_, 0, 0); Not needed anymore. Moved to cbAppData                       { This will call LateInitialize }
 end;
 
 
@@ -66,7 +66,7 @@ begin
   then SnapBuffer:= 4 moved to cbAppData
   else SnapBuffer:= 10;
 
-  AppData.Initializing:= FALSE; moved to cbAppData
+  //AppData.Initializing:= FALSE; moved to cbAppData
   AppData.SetMaxPriority;
 
   HDIDValid:= TRUE;
