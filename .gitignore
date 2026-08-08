@@ -9,3 +9,9 @@
 *.ini
 *.dcu
 FMX - Test deploy/AndroidManifest.template.xml
+Save game to disk/Tester.map
+Save game to disk/Tester.exe
+Save game to disk/Tester.drc
+Save game to disk/FastMM_FullDebugMode.dll
+Errors - Premature return from function/TesterForm.pas
+Errors - Premature return from function/TesterForm.pas
