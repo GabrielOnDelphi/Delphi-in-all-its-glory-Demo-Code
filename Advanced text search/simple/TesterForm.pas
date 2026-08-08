@@ -44,14 +44,14 @@ USES shellApi, cbIniFile, cvIniFile, ccIO, cmIO, cmIO.Win, system.IniFiles;
 procedure TfrmTester.FormCreate(Sender: TObject);
 begin
  DragAcceptFiles(Handle, True);                                             { Accept the dropped files from Windows Explorer }
- PostMessage(Self.Handle, MSG_LateAppInit_, 0, 0); Not needed anymore. Moved to cbAppData                       { This will call LateInitialize }
+ //PostMessage(Self.Handle, MSG_LateAppInit_, 0, 0); Not needed anymore. Moved to cbAppData                       { This will call LateInitialize }
 end;
 
 
 procedure TfrmTester.LateInitialize;
 begin
  LoadForm(Self);
- AppData.Initializing:= FALSE; moved to cbAppData
+ //AppData.Initializing:= FALSE; moved to cbAppData
  edtSearchWord.Text:= ' My Text: ';
 end;
 
