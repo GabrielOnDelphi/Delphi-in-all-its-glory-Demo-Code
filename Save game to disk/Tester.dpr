@@ -17,7 +17,8 @@ begin
   CONST AppName       = 'Save game to disk';
 
   AppData:= TAppData.Create(AppName, '', MultiThreaded);
-  AppData.CreateMainForm(TfrmTester, frmTester, TRUE, TRUE, asPosOnly);
+  Application.MainFormOnTaskbar:= TRUE;
+  AppData.CreateMainForm(TfrmTester, frmTester, asPosOnly);
 
   {$IFDEF AUTOPILOT}StartBridge;{$ENDIF}
 
