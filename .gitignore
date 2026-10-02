@@ -15,3 +15,8 @@ Save game to disk/Tester.drc
 Save game to disk/FastMM_FullDebugMode.dll
 Errors - Premature return from function/TesterForm.pas
 Errors - Premature return from function/TesterForm.pas
+
+# Temporary files of Claude Code sessions
+Temp/
+Speed comparison/SpeedTest.exe
+/Speed comparison/Backup - before the port to the current LightSaber 2026-09-29
