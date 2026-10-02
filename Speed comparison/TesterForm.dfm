@@ -20,8 +20,6 @@ object frmTester: TfrmTester
   ScreenSnap = True
   ShowHint = True
   SnapBuffer = 4
-  OnCreate = FormCreate
-  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 17
   object pnlRight: TPanel

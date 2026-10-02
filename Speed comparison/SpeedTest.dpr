@@ -1,42 +1,27 @@
 program SpeedTest;
 
+{ The speed test shown in Book 2, "Reaching for the gods", chapter "Speed up your program".
+  Build it in Release (Optimization on) and run it outside the debugger, or the numbers mean nothing. }
+
 uses
-  {$IFDEF DEBUG}
-  FastMM4,
-  {$ENDIF }
-  Forms,
+  {$IFDEF DEBUG}FastMM4,{$ENDIF}
+  Vcl.Forms,
   TesterForm in 'TesterForm.pas' {frmTester},
-  cbAppData in '..\..\..\..\..\Packages\LightSaber\cbAppData.pas',
-  cmDebugger in '..\..\..\..\..\Packages\LightSaber\cmDebugger.pas',
-  FormLog in '..\..\..\..\..\Packages\LightSaber\FormLog.pas',
-  chHardID in '..\..\..\..\..\Packages\LightSaber\chHardID.pas';
+  LightVcl.Visual.AppData in '..\..\LightSaber\FrameVCL\LightVcl.Visual.AppData.pas',
+  LightVcl.Visual.AppDataForm in '..\..\LightSaber\FrameVCL\LightVcl.Visual.AppDataForm.pas',
+  LightCore.AppData in '..\..\LightSaber\LightCore.AppData.pas';
 
 {$R *.res}
 
 begin
-  Application.Initialize;
-  
-  { MainFormOnTaskbar
-    See: stackoverflow.com/questions/66720721
+  CONST
+     MultiThreaded= FALSE;
+  CONST
+     AppName= 'Delphi Speed Test';           // Used as the name of the INI file (SaveForm/LoadForm)
 
-    If true:
-      The taskbar button represents the application's Main Form and displays its caption.
+  AppData:= TAppData.Create(AppName, '', MultiThreaded);
+  Application.MainFormOnTaskbar:= TRUE;
+  AppData.CreateMainForm(TfrmTester, asFull);
 
-      Bad: All child forms will stay on top of the MainForm!
-      But they are not modal! The MainForm can still be clicked!
-      If we don't really want this, we should stick with MainFormOnTaskbar = false.
-      When we do want a child form to stay on top, then can use fsStayOnTop.
-
-    If False:
-      The taskbar button represents the application's (hidden) main window and bears the application's Title.
-      Must be True to use Windows (Vista) Aero effects (live taskbar thumbnails, Dynamic Windows, Windows Flip, Windows Flip 3D).
-
-      Bad: All child forms will disapear under the MainForm! }
-      
-  Application.MainFormOnTaskbar := True;      
-  Application.Title := 'CubicTester'; // Set by AppData
-  AppData:= TAppDataEx.Create('Cubic Tester Dummy');    { Absolutelly critical if you use the SaveForm/LoadForm functionality. This string will be used as the name of the INI file. }
-  Application.CreateForm(TfrmTester, frmTester);
-  frmTester.Show;
-  Application.Run;
+  AppData.Run;
 end.

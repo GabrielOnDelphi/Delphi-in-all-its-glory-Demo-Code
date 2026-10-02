@@ -1,13 +1,27 @@
 UNIT TesterForm;
 
+{=============================================================================================================
+   2026.09.29
+   www.GabrielMoraru.com
+--------------------------------------------------------------------------------------------------------------
+   The speed test shown in Book 2, "Reaching for the gods", chapter "Speed up your program".
+   Ported to the current LightSaber (LightCore.* / LightVcl.*) on 2026.09.29.
+
+   For valid numbers:
+     - Build in Release (Optimization on)
+     - Run outside the debugger
+     - Use the same computer for all tests
+=============================================================================================================}
+
 INTERFACE
 
 USES
-  WinApi.Windows, Winapi.ShellAPI, WinApi.Messages, System.SysUtils, System.Classes, Vcl.StdCtrls, VCL.Forms, Vcl.Controls, Vcl.Samples.Spin,
-  cvRichEdit, Vcl.ComCtrls, ccCore, csSystem, cbDialogs, ccINIFile, FormLog, cvPathEdit, Vcl.ExtCtrls, llRichLog;
+  Winapi.Windows, System.SysUtils, System.Classes,
+  Vcl.StdCtrls, Vcl.Forms, Vcl.Controls, Vcl.ExtCtrls,
+  LightVcl.Visual.AppDataForm;
 
 TYPE
- TfrmTester = class(TForm)
+ TfrmTester = class(TLightForm)
     pnlRight: TPanel;
     btnForLoop: TButton;
     mmo: TMemo;
@@ -16,91 +30,83 @@ TYPE
     btnFindShortStr: TButton;
     btnFillMem: TButton;
     procedure btnForLoopClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
     procedure bntMemAllocClick(Sender: TObject);
     procedure btnFillStringClick(Sender: TObject);
     procedure btnFindShortStrClick(Sender: TObject);
     procedure btnFillMemClick(Sender: TObject);
-  protected
-  private
-    procedure LateInitialize(VAR Msg: TMessage); message MSG_LateFormInit; // Called after the main form was fully created
   public
+    procedure FormPostInitialize; override; // Called after the main form was fully created
  end;
 
-VAR
-   frmTester: TfrmTester;
 
 IMPLEMENTATION  {$R *.dfm}
 
-USES chHardID, cbAppData, cbINIFile, cbWinVersion, cvIniFile, ccIO, cmIO, cmIO.Win, cmDebugger;
-
+USES
+   Winapi.PsAPI, System.Win.Registry,
+   LightCore, LightCore.Debugger, LightVcl.Visual.AppData;
 
 
 
 {--------------------------------------------------------------------------------------------------
-   APP START/CLOSE
+   UTILS
 --------------------------------------------------------------------------------------------------}
 
-
-procedure TfrmTester.FormCreate(Sender: TObject);
+{ RAM used by this process right now (the working set) }
+function ProcessCurrentMemS: string;
+VAR Counters: TProcessMemoryCounters;
 begin
- //PostMessage(Self.Handle, MSG_LateAppInit_, 0, 0); Not needed anymore. Moved to cbAppData                       { This will call LateInitialize }
+  Counters.cb:= SizeOf(Counters);
+  if NOT GetProcessMemoryInfo(GetCurrentProcess, @Counters, SizeOf(Counters))
+  then RaiseLastOSError;
+  Result:= FormatBytes(Counters.WorkingSetSize, 2);
 end;
 
 
-//ToDo: switch to Release mode
-//ToDo: switch to Realtime mode
-//ToDo: switch off FastMM
-//ToDo: use same computer
-//ToDo: test outside debugger
-
-procedure TfrmTester.LateInitialize;
+{ The CPU name, as Windows shows it }
+function CpuName: string;
+VAR Reg: TRegistry;
 begin
-  Winapi.ShellAPI.DragAcceptFiles(Self.Handle, True);                                             { Accept the dropped files from Windows Explorer }
+  Result:= '';
+  Reg:= TRegistry.Create(KEY_READ);
+  TRY
+    Reg.RootKey:= HKEY_LOCAL_MACHINE;
+    if Reg.OpenKeyReadOnly('HARDWARE\DESCRIPTION\System\CentralProcessor\0')
+    then Result:= Trim(Reg.ReadString('ProcessorNameString'));
+  FINALLY
+    FreeAndNil(Reg);
+  END;
+end;
 
-  LoadForm(Self);
-  Randomize;
 
-  if cbWinVersion.IsWindows8Up
-  then SnapBuffer:= 4 moved to cbAppData
-  else SnapBuffer:= 10;
 
-  //AppData.Initializing:= FALSE; moved to cbAppData
+{--------------------------------------------------------------------------------------------------
+   APP START
+--------------------------------------------------------------------------------------------------}
+procedure TfrmTester.FormPostInitialize;
+begin
+  inherited FormPostInitialize;
+
   AppData.SetMaxPriority;
 
-  HDIDValid:= TRUE;
   if IsRunningUnderDelphiDebugger then mmo.Lines.Add('Warning: running under debugger!');
-  if NOT CompilerOptimization     then mmo.Lines.Add('Warning: Compiler Optimization is off!');
-  mmo.Lines.Add('CPU family: '                   + Tab + CPUFamily);                               { Get cpu identifier from the windows registry }
-  mmo.Lines.Add('CPU speed: '                    + Tab + IntToStr(round(GetCPUSpeed)));
-  mmo.Lines.Add('CPU theoretic speed: '          + IntToStr(GetCpuTheoreticSpeed));                { Get cpu speed (in MHz) }
-  mmo.Lines.Add('No of logical cores: '          + Tab + IntToStr(GetCPUCount));                   { The number of LOGICAL processors in the current group }
-  if IsIntel64BitCPU
-  then mmo.Lines.Add('Intel 64 bit mode: '       + Tab+ BoolToStr(IsIntel64BitCPU, TRUE));         { Detects IA64 processors }
-  if IsCPUIDAvailable
-  then mmo.Lines.Add('CPU ID: '                  + GetCpuIdNow);
+
+  { Checked here, in this unit, because $O is a per-unit setting: LightCore.Debugger.CompilerOptimization reports the state of ITS unit, not of the benchmark. }
+  {$IFOPT O+}
+  mmo.Lines.Add('Compiler optimization: ON');
+  {$ELSE}
+  mmo.Lines.Add('Warning: Compiler optimization is OFF!');
+  {$ENDIF}
+
+  mmo.Lines.Add('CPU: '                  + CpuName);
+  mmo.Lines.Add('No of logical cores: '  + IntToStr(CPUCount));
   mmo.Lines.Add('');
 end;
 
 
-procedure TfrmTester.FormDestroy(Sender: TObject);
-begin
- SaveForm(Self);
- FreeAndNil(AppData-);  // This is the last object ot be freed. It will also free the Log
-end;
 
-
-
-
-
-
-
-
-
-
-
-
+{--------------------------------------------------------------------------------------------------
+   TESTS
+--------------------------------------------------------------------------------------------------}
 procedure TfrmTester.btnForLoopClick(Sender: TObject);
 VAR
    i, Total, Big, Small: Integer;
@@ -124,7 +130,7 @@ begin
     end;
 
  s:= TimerElapsedS;
- mmo.Lines.Add('2 billion for loop: '+ TimerElapsedS);
+ mmo.Lines.Add('2 billion for loop: '+ s);
  mmo.Lines.Add(' Big: '          + IntToStr(Big));
  mmo.Lines.Add(' Small: '        + IntToStr(Small));
  mmo.Lines.Add(' Current RAM: '  + ProcessCurrentMemS);
