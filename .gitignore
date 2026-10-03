@@ -18,5 +18,7 @@ Errors - Premature return from function/TesterForm.pas
 
 # Temporary files of Claude Code sessions
 Temp/
+.claude/
 Speed comparison/SpeedTest.exe
+Properties - Address and FreeAndNil/Project_PropertyAddress.exe
 /Speed comparison/Backup - before the port to the current LightSaber 2026-09-29
