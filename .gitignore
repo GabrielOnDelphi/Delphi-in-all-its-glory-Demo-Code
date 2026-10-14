@@ -2,6 +2,7 @@
 *.~*
 *.dsk
 *.lnk
+*.exe
 *.local
 *.dsv
 *.identcache
