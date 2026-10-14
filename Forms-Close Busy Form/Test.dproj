@@ -86,7 +86,8 @@
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_DebugDCUs>true</DCC_DebugDCUs>
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
-        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Define>AUTOPILOT;DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_UnitSearchPath>c:\Projects\Projects AI\Autopilot for Delphi\Source\Bridge;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
         <DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
         <DCC_Optimize>false</DCC_Optimize>

@@ -2,6 +2,7 @@ program Project_VirtualKeyb;
 
 uses
   Vcl.Forms,
+  {$IFDEF AUTOPILOT}Autopilot.Bridge.Vcl in 'c:\Projects\Projects AI\Autopilot for Delphi\Source\Bridge\Autopilot.Bridge.Vcl.pas',{$ENDIF}{Optional}
   FormKeyboard in 'FormKeyboard.pas' {FormKeyb};
 
 {$R *.res}
@@ -28,5 +29,12 @@ begin
       
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFormKeyb, FormKeyb);
+
+  { Optional: Via Autopilot, Claude can run/debug/test this program for you.
+    For example, press the button "5" & check that the caption becomes "You pressed button 5".
+    Don't have AUTOPILOT? Undefine $AUTOPILOT or get it from www.GabrielMoraru.com }
+  {$IFDEF AUTOPILOT}
+   Autopilot.Bridge.Vcl.StartBridge;
+  {$ENDIF}
   Application.Run;
 end.

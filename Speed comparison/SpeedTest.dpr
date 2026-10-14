@@ -9,6 +9,7 @@ uses
   TesterForm in 'TesterForm.pas' {frmTester},
   LightVcl.Visual.AppData in '..\..\LightSaber\FrameVCL\LightVcl.Visual.AppData.pas',
   LightVcl.Visual.AppDataForm in '..\..\LightSaber\FrameVCL\LightVcl.Visual.AppDataForm.pas',
+  {$IFDEF AUTOPILOT}Autopilot.Bridge.Vcl in 'c:\Projects\Projects AI\Autopilot for Delphi\Source\Bridge\Autopilot.Bridge.Vcl.pas',{$ENDIF}{Optional}
   LightCore.AppData in '..\..\LightSaber\LightCore.AppData.pas';
 
 {$R *.res}
@@ -23,5 +24,11 @@ begin
   Application.MainFormOnTaskbar:= TRUE;
   AppData.CreateMainForm(TfrmTester, asFull);
 
+  { Optional: Via Autopilot, Claude can run/debug/test this program for you.
+    For example, press "Do For Loop" & read the time in mmo.
+    Don't have AUTOPILOT? Undefine $AUTOPILOT or get it from www.GabrielMoraru.com }
+  {$IFDEF AUTOPILOT}
+   Autopilot.Bridge.Vcl.StartBridge;
+  {$ENDIF}
   AppData.Run;
 end.

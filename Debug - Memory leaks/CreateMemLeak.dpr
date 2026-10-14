@@ -5,6 +5,7 @@ uses
   FastMM4,
   {$ENDIF }
   Forms,
+  {$IFDEF AUTOPILOT}Autopilot.Bridge.Vcl in 'c:\Projects\Projects AI\Autopilot for Delphi\Source\Bridge\Autopilot.Bridge.Vcl.pas',{$ENDIF}{Optional}
   TesterForm in 'TesterForm.pas' {frmTester};
 
 {$R *.res}
@@ -33,5 +34,12 @@ begin
   Application.Title := 'CubicTester'; // Set by AppData
   Application.CreateForm(TfrmTester, frmTester);
   frmTester.Show;
+
+  { Optional: Via Autopilot, Claude can run/debug/test this program for you.
+    For example, press "Beeper create", then "Beeper destroy" & read Label1.
+    Don't have AUTOPILOT? Undefine $AUTOPILOT or get it from www.GabrielMoraru.com }
+  {$IFDEF AUTOPILOT}
+   Autopilot.Bridge.Vcl.StartBridge;
+  {$ENDIF}
   Application.Run;
 end.

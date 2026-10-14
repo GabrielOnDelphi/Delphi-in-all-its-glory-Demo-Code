@@ -86,7 +86,8 @@
         <BT_BuildType>Debug</BT_BuildType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
-        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Define>AUTOPILOT;DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_UnitSearchPath>c:\Projects\Projects AI\Autopilot for Delphi\Source\Bridge;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_GARBAGE>false</DCC_GARBAGE>
         <DCC_SYMBOL_LIBRARY>false</DCC_SYMBOL_LIBRARY>
         <DCC_SYMBOL_PLATFORM>false</DCC_SYMBOL_PLATFORM>
