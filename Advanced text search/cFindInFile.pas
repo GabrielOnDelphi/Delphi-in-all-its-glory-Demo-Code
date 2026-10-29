@@ -24,7 +24,7 @@ function FindStringInFile(FileName: string): TSearchResult;
 
 
 implementation
-Uses ccCore, csSystem, cbDialogs, ccINIFile, ccIO, cmIO, cmIO.Win;
+Uses LightCore, LightCore.TextFile;
 
 
 

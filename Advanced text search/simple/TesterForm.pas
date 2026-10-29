@@ -4,8 +4,11 @@ INTERFACE
 
 USES
   WinApi.Windows,  WinApi.Messages, System.SysUtils, System.Classes, Vcl.StdCtrls, VCL.Forms, Vcl.Controls, Vcl.Samples.Spin,
-  cvRichEdit, FormLog, Vcl.ComCtrls, ccCore, csSystem, cbDialogs, ccINIFile, Vcl.ExtCtrls, cvLabelEdit, cvPathEdit, cvCheckBox,
-  llRichLog, cbAppData;
+  Vcl.ComCtrls, Vcl.ExtCtrls,
+  LightVcl.Visual.RichLog, LightVcl.Visual.LabelEdit, LightVcl.Visual.PathEdit, LightVcl.Visual.CheckBox;
+
+CONST
+  MSG_LateFormInit = WM_APP + 4711;
 
 TYPE
  TfrmTester = class(TForm)
@@ -32,7 +35,7 @@ VAR
 
 IMPLEMENTATION  {$R *.dfm}
 
-USES shellApi, cbIniFile, cvIniFile, ccIO, cmIO, cmIO.Win, system.IniFiles;
+USES shellApi, LightCore.IO, LightCore.TextFile;
 
 
 
@@ -50,7 +53,6 @@ end;
 
 procedure TfrmTester.LateInitialize;
 begin
- LoadForm(Self);
  //AppData.Initializing:= FALSE; moved to cbAppData
  edtSearchWord.Text:= ' My Text: ';
 end;
@@ -58,7 +60,6 @@ end;
 
 procedure TfrmTester.FormDestroy(Sender: TObject);
 begin
- SaveForm(Self);
  //FreeAndNil(AppData-);
 end;
 
@@ -79,7 +80,7 @@ VAR
   end;
 
 begin
- Body:= ccIO.StringFromFileTSL(FileName);
+ Body:= LightCore.TextFile.StringFromFileTSL(FileName);
  TRY
 
   for iLine:= 0 to Body.Count-1 DO
@@ -111,7 +112,7 @@ VAR
 begin
  log.Clear;
  Caption:= 'Building list of files...';
- FileList:= ccIO.ListFilesOf(Path.Path, edtFileType.Text, TRUE, TRUE);
+ FileList:= LightCore.IO.ListFilesOf(Path.Path, edtFileType.Text, TRUE, TRUE);
  TRY
 
  for i:= 0 to FileList.Count-1 DO

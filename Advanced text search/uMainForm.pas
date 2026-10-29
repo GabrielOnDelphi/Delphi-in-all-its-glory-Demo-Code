@@ -48,12 +48,7 @@ var
 
 implementation {$R *.dfm}
 USES
-   ccIO, cmIO, cmIO.Win,
-   ccCore, csSystem, cbDialogs,
-   cbAppData, cbINIFile,
-   cmINIFileQuick,
-   csSystem,
-   cbIniFile, cvIniFile;
+   LightCore.IO, LightCore.INIFileQuick, LightVcl.Common.Clipboard;
 
 var
   CurFoundPos: Integer;
@@ -63,7 +58,7 @@ var
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
-  edtPath.Text:= cmINIFileQuick.ReadString('Path', 'C:\Projects');
+  edtPath.Text:= LightCore.INIFileQuick.ReadString('Path', 'C:\Projects');
   //btnStartClick(Sender);
 end;
 
@@ -71,7 +66,6 @@ end;
 procedure TfrmMain.FormDestroy(Sender: TObject);
 begin
  WriteString('Path', edtPath.Text);  { Save GUI }
- AppData.Initializing:= FALSE; 
  FreeResults;                        { Release objects }
 end;
 

@@ -31,7 +31,7 @@ USES Unit2;
 
 procedure TForm1.FormCreate (Sender: TObject);
 begin
-  PostMessage(Self.Handle, MSG_LateAppInit_, 0, 0);
+  PostMessage(Self.Handle, MSG_LateFormInit, 0, 0);
   Show;
   Sleep(1000);  // Form 1 is very bussy here.
 end;

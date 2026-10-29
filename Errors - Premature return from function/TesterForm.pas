@@ -4,7 +4,10 @@ INTERFACE
 
 USES
   WinApi.Windows, Winapi.ShellAPI, WinApi.Messages, System.SysUtils, System.Classes, Vcl.StdCtrls, VCL.Forms, Vcl.Controls, Vcl.Samples.Spin,
-  cvRichEdit, Vcl.ComCtrls, ccCore, csSystem, cbDialogs, ccINIFile, FormLog, cvPathEdit, Vcl.ExtCtrls, llRichLog;
+  Vcl.ComCtrls, Vcl.ExtCtrls;
+
+CONST
+  MSG_LateFormInit = WM_APP + 4711;
 
 TYPE
  TfrmTester = class(TForm)
@@ -23,7 +26,6 @@ VAR
 
 IMPLEMENTATION  {$R *.dfm}
 
-USES cbAppData, cbINIFile, cbWinVersion, cvIniFile, ccIO, cmIO, cmIO.Win, cmDebugger;
 
 
 
